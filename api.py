@@ -23,8 +23,6 @@ os.makedirs(DOCS_PATH, exist_ok=True)
 async def upload_file(file: UploadFile = File(...)):
     file_path = os.path.join(DOCS_PATH, file.filename)
 
-    print(file_path)
-
     with open(file_path, "wb") as f:
         shutil.copyfileobj(file.file, f)
 
